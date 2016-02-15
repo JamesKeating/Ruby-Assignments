@@ -1,0 +1,24 @@
+Name: James Keating
+Student Number: 13508803
+
+Statement on program performance:
+
+The program is split into 3 classes and 1 modual.
+
+1. Main: 			Executes part 1-4 of the question as specified.
+					Part 1:'There's no main.rb file for this part.'
+					Part 2:'Output details of one of the countries that won the most gold medals, and the average population of all the countries.'
+					Part 3: 'Invoke sort! in main.rb, then use to_s(n) to print the first 10 countries in MedalRankings.'
+					Part 4: 'Use the each_single_gold_winner() iterator in main.rb,to print out the countries that won exactly one gold medal and none other.'
+					(works correctly)
+			
+2. Country:			Takes 5 arguments; country name(string), gold(int), silver(int), bronze(int), population(int)
+					It includes the modual GDP which is used to find a given countries GDP which is nessesary to get a countries score
+					Its to_s returns a string specified in the question eg 'IRE, 1, 1, 3, 4477868'
+					(works correctly)
+			
+3. MedalRankings: 	Contains an array of countries. These countries can be added one at a time manually or read from a specified file
+					Can return the average population of all the countries. Can return a country with the most gold medals.
+					Can sort the array based on the score of each country(decending order)
+					Contains an iterator which yields each country who has a single gold and no other medals.
+					(works correctly)
