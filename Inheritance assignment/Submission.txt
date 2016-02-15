@@ -1,0 +1,49 @@
+Name: James Keating
+Student Number: 13508803
+
+Statement on program performance:
+
+The program is split into 2 classes.
+
+			
+1. Card: 	Card repersends a card from ace-king.The cards type is called its rank. 
+		When a card is created if it is passed a rank the card will be of that rank.
+		If no argument is passed a rank is randomly selected.
+			
+			
+2. Hand: 	Hand is a super class with the following class hierarchy:
+									Hand
+									  |
+							---------------------------------
+							|				|
+					  	    TwoCardGame			   FiveCardGame
+							|				|
+						-------------------		-------------------
+						|		   |		|		   |
+					      Idiot		  Liar	      Light		 Spider
+						   
+		Hand contains the methods which all types of hands use:
+		
+		initialize: you decide what arguments (if any) it needs
+		add_card(card): add given card to the hand, only if the hand is not complete
+		complete?: return true iff the hand has its full number of cards
+		contains?(card): return true iff the hand contains the given card
+		value(card): return the integer value of the given card for this type of hand
+		evaluate: returns a floating-point value that represents the value of the hand in the
+		card game that is being played, or nil if the hand is incomplete. 
+		fill_hand_with_rand_cards: adds random non duplicate cards to a hand until it is full
+		hand_size: returns the number of cards currently in a hand
+		to_s: returns a string repersenting the rank of the cards in hand
+			
+		Initally I then had the four subclasses Idiot, Liar, Light, Spider 
+		which contained the data specific to each game. How ever the max hand size was duplicated in: 
+		(Idiot and Liar) & (Light and Spider). To remove this duplication i moved this information up
+		to the super classes TwoCardGame and FiveCardGame
+		
+		Each of the four lowest subclasses contains only data unique to them. In all cases this includes
+		the value of each card in the game. Spider however has an additional unique element. its evaluate is 
+		different from all the other games, so it has its own evaluate which overwrites the default evaluate
+		in the abstract hand class.
+			
+		This hierarchy was choosen to minimise the duplication of any data in classes and to prevent the 
+		inheritence of any data not used by a class.
